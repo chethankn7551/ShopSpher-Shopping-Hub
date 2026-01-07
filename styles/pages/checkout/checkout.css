@@ -209,3 +209,25 @@
   margin-top: 11px;
   margin-bottom: 15px;
 }
+/* Add these styles to your existing checkout.css file */
+
+/* 14g: Style the quantity input */
+.quantity-input {
+  width: 30px;
+  display: none;
+}
+
+/* 14h: Hide the save link by default */
+.save-quantity-link {
+  display: none;
+}
+
+/* 14h: Show input when editing quantity */
+.is-editing-quantity .quantity-input {
+  display: initial;
+}
+
+/* 14h: Show save link when editing quantity */
+.is-editing-quantity .save-quantity-link {
+  display: initial;
+}
