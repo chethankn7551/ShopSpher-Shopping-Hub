@@ -1,14 +1,9 @@
 .main {
-  max-width: 850px;
+  max-width: 1100px;
   margin-top: 90px;
   margin-bottom: 100px;
   padding-left: 20px;
   padding-right: 20px;
-
-  /* margin-left: auto;
-     margin-right auto;
-     Is a trick for centering an element horizontally
-     without needing a container. */
   margin-left: auto;
   margin-right: auto;
 }
@@ -22,199 +17,216 @@
 .orders-grid {
   display: grid;
   grid-template-columns: 1fr;
-  row-gap: 50px;
+  row-gap: 30px;
+}
+
+.order-container {
+  border: 1px solid rgb(213, 217, 217);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
 }
 
 .order-header {
   background-color: rgb(240, 242, 242);
-  border: 1px solid rgb(213, 217, 217);
-
+  padding: 20px 25px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  padding: 20px 25px;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
 }
 
 .order-header-left-section {
   display: flex;
-  flex-shrink: 0;
+  gap: 40px;
 }
 
 .order-header-label {
   font-weight: 500;
+  margin-bottom: 3px;
+  font-size: 13px;
+  color: rgb(102, 102, 102);
 }
 
 .order-date,
 .order-total {
-  margin-right: 45px;
+  font-size: 14px;
 }
 
 .order-header-right-section {
-  flex-shrink: 1;
-}
-
-@media (max-width: 575px) {
-  .order-header {
-    flex-direction: column;
-    align-items: start;
-    line-height: 23px;
-    padding: 15px;
-  }
-
-  .order-header-left-section {
-    flex-direction: column;
-  }
-
-  .order-header-label {
-    margin-right: 5px;
-  }
-
-  .order-date,
-  .order-total {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    margin-right: 0;
-  }
-
-  .order-header-right-section {
-    display: grid;
-    grid-template-columns: auto 1fr;
-  }
+  font-size: 14px;
+  color: rgb(102, 102, 102);
 }
 
 .order-details-grid {
-  padding: 40px 25px;
-  border: 1px solid rgb(213, 217, 217);
-  border-top: none;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-
+  padding: 25px;
   display: grid;
-  grid-template-columns: 110px 1fr 220px;
-  column-gap: 35px;
-  row-gap: 60px;
-  align-items: center;
+  grid-template-columns: 120px 1fr;
+  gap: 25px;
+  align-items: start;
 }
 
-@media (max-width: 800px) {
-  .order-details-grid {
-    grid-template-columns: 110px 1fr;
-    row-gap: 0;
-    padding-bottom: 8px;
-  }
-}
-
-@media (max-width: 450px) {
-  .order-details-grid {
-    grid-template-columns: 1fr;
-  }
+.order-item-container {
+  display: contents;
 }
 
 .product-image-container {
-  text-align: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 10px;
 }
 
 .product-image-container img {
-  max-width: 110px;
-  max-height: 110px;
+  max-width: 100%;
+  max-height: 120px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.product-details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .product-name {
   font-weight: 700;
+  font-size: 16px;
   margin-bottom: 5px;
 }
 
 .product-delivery-date {
-  margin-bottom: 3px;
+  color: rgb(6, 125, 98);
+  font-weight: 700;
+  margin-bottom: 5px;
 }
 
 .product-quantity {
+  color: rgb(102, 102, 102);
+  font-size: 14px;
   margin-bottom: 8px;
 }
 
-.buy-again-button {
-  font-size: 15px;
-  width: 140px;
-  height: 36px;
-  border-radius: 8px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.buy-again-icon {
-  width: 25px;
-  margin-right: 15px;
+.product-price {
+  font-weight: 700;
+  font-size: 16px;
+  color: rgb(33, 33, 33);
+  margin-bottom: 15px;
 }
 
 .product-actions {
-  align-self: start;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.buy-again-button {
+  background-color: rgb(255, 216, 20);
+  border: 1px solid rgb(252, 210, 0);
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.buy-again-button:hover {
+  background-color: rgb(247, 202, 0);
 }
 
 .track-package-button {
-  width: 100%;
-  font-size: 15px;
-  padding: 8px;
+  background-color: white;
+  border: 1px solid rgb(213, 217, 217);
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  color: rgb(33, 33, 33);
+  display: inline-block;
+}
+
+.track-package-button:hover {
+  background-color: rgb(247, 250, 250);
+}
+
+.no-orders-message {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+}
+
+.no-orders-message p {
+  font-size: 18px;
+  color: rgb(102, 102, 102);
+  margin-bottom: 20px;
+}
+
+.no-orders-message .button-primary {
+  padding: 12px 30px;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-block;
 }
 
 @media (max-width: 800px) {
-  .buy-again-button {
-    margin-bottom: 10px;
+  .order-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 
-  .product-actions {
-    /* grid-column: 2 means this element will be placed
-       in column 2 in the grid. (Normally, the column that
-       an element is placed in is determined by the order
-       of the elements in the HTML. grid-column overrides
-       this default ordering). */
-    grid-column: 2;
-    margin-bottom: 30px;
+  .order-header-left-section {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
   }
 
-  .track-package-button {
-    width: 140px;
+  .order-header-right-section {
+    width: 100%;
   }
-}
 
-@media (max-width: 450px) {
+  .order-details-grid {
+    grid-template-columns: 1fr;
+  }
+
   .product-image-container {
-    text-align: center;
-    margin-bottom: 25px;
+    justify-content: flex-start;
+    padding-top: 0;
   }
 
   .product-image-container img {
     max-width: 150px;
-    max-height: 150px;
+  }
+}
+
+@media (max-width: 575px) {
+  .order-details-grid {
+    grid-template-columns: 1fr;
+    text-align: left;
+    gap: 20px;
   }
 
-  .product-name {
-    margin-bottom: 10px;
+  .product-image-container {
+    justify-content: center;
   }
 
-  .product-quantity {
-    margin-bottom: 15px;
-  }
-
-  .buy-again-button {
-    width: 100%;
-    margin-bottom: 15px;
+  .product-image-container img {
+    max-width: 180px;
   }
 
   .product-actions {
-    /* grid-column: auto; undos grid-column: 2; from above.
-       This element will now be placed in its normal column
-       in the grid. */
-    grid-column: auto;
-    margin-bottom: 70px;
+    flex-direction: column;
   }
 
+  .buy-again-button,
   .track-package-button {
     width: 100%;
-    padding: 12px;
+    text-align: center;
   }
 }

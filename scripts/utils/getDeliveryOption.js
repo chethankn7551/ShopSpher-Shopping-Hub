@@ -9,5 +9,5 @@ export function getDeliveryOption(deliveryOptionId) {
     }
   });
 
-  return deliveryOption || deliverOptions[0];
+  return deliveryOption;
 }

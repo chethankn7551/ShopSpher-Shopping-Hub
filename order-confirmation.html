@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My Orders - TechHub</title>
+    <title>Order Confirmation - TechHub</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,7 +10,7 @@
     
     <link rel="stylesheet" href="styles/shared/general.css">
     <link rel="stylesheet" href="styles/shared/amazon-header.css">
-    <link rel="stylesheet" href="styles/pages/orders.css">
+    <link rel="stylesheet" href="styles/pages/order-confirmation.css">
   </head>
   <body>
     <div class="amazon-header">
@@ -43,12 +43,29 @@
     </div>
 
     <div class="main">
-      <div class="page-title">My Orders</div>
-      <div class="orders-grid js-orders-grid">
-        <!-- Orders will be inserted here by JavaScript -->
+      <div class="confirmation-container">
+        <div class="success-icon">
+          <img src="images/icons/checkmark.png" alt="Success">
+        </div>
+        
+        <h1 class="confirmation-title">Order Placed Successfully!</h1>
+        <p class="confirmation-message">Thank you for your purchase. Your order has been confirmed.</p>
+        
+        <div class="order-details js-order-details">
+          <!-- Order details will be inserted here by JavaScript -->
+        </div>
+
+        <div class="confirmation-actions">
+          <a href="orders.html" class="button-primary view-orders-button">
+            View My Orders
+          </a>
+          <a href="amazon.html" class="button-secondary continue-shopping-button">
+            Continue Shopping
+          </a>
+        </div>
       </div>
     </div>
 
-    <script type="module" src="./scripts/orders.js"></script>
+    <script type="module" src="./scripts/order-confirmation.js"></script>
   </body>
 </html>
