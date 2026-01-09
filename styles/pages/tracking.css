@@ -1,5 +1,5 @@
 .main {
-  max-width: 900px;
+  max-width: 850px;
   margin-top: 90px;
   margin-bottom: 100px;
   padding-left: 20px;
@@ -10,307 +10,94 @@
 
 .order-tracking {
   background-color: white;
-  padding: 0;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
 }
 
 .tracking-header {
-  background: linear-gradient(135deg, rgb(19, 25, 33) 0%, rgb(30, 40, 50) 100%);
-  color: white;
-  padding: 30px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(213, 217, 217);
 }
 
-.tracking-title {
+.tracking-header h1 {
   font-size: 28px;
   font-weight: 700;
+  color: rgb(33, 33, 33);
   margin: 0;
 }
 
 .back-to-orders-link {
-  color: white;
-  text-decoration: none;
   font-size: 15px;
-  transition: opacity 0.2s;
 }
 
-.back-to-orders-link:hover {
-  opacity: 0.8;
+.delivery-date {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: rgb(33, 33, 33);
 }
 
-.tracking-content {
-  padding: 40px;
+.product-info {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: rgb(33, 33, 33);
 }
 
-.order-summary-box {
-  background-color: rgb(247, 250, 250);
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 30px;
+.product-image {
+  max-width: 250px;
+  max-height: 250px;
+  display: block;
+  margin-top: 25px;
+  margin-bottom: 35px;
+  object-fit: contain;
+}
+
+.progress-labels-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 12px;
+  gap: 10px;
 }
 
-.order-summary-item {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.order-summary-item .label {
-  font-size: 13px;
+.progress-label {
+  text-align: center;
+  font-size: 15px;
   color: rgb(102, 102, 102);
   font-weight: 500;
 }
 
-.order-summary-item .value {
-  font-size: 16px;
-  color: rgb(33, 33, 33);
-  font-weight: 600;
+.progress-label.current-status {
+  color: rgb(6, 125, 98);
+  font-weight: 700;
 }
 
-.status-badge {
-  display: inline-block;
-  padding: 5px 12px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.status-preparing {
-  background-color: rgb(255, 243, 205);
-  color: rgb(196, 124, 0);
-}
-
-.status-shipped {
-  background-color: rgb(214, 234, 248);
-  color: rgb(1, 104, 182);
-}
-
-.status-delivered {
-  background-color: rgb(212, 237, 218);
+.progress-label.completed {
   color: rgb(6, 125, 98);
 }
 
-.delivery-status {
-  background-color: rgb(240, 248, 255);
-  border-left: 4px solid rgb(1, 124, 182);
-  border-radius: 8px;
-  padding: 25px;
-  margin-bottom: 35px;
-}
-
-.delivery-date-section {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.delivery-icon {
-  font-size: 48px;
-  flex-shrink: 0;
-}
-
-.delivery-info {
-  flex: 1;
-}
-
-.delivery-status-text {
-  font-size: 18px;
-  font-weight: 600;
-  color: rgb(33, 33, 33);
-  margin-bottom: 8px;
-}
-
-.delivery-date {
-  font-size: 16px;
-  color: rgb(102, 102, 102);
-}
-
-.delivery-date strong {
-  color: rgb(1, 124, 182);
-  font-weight: 700;
-}
-
-.tracking-progress-section {
-  margin-bottom: 35px;
-}
-
-.section-title {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 25px;
-  color: rgb(33, 33, 33);
-}
-
-.progress-steps {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  position: relative;
-}
-
-.progress-step {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  flex: 1;
-  position: relative;
-  z-index: 2;
-}
-
-.step-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: rgb(213, 217, 217);
-  color: rgb(102, 102, 102);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  font-weight: 700;
-  transition: all 0.3s;
-}
-
-.progress-step.active .step-icon {
-  background-color: rgb(255, 216, 20);
-  color: rgb(33, 33, 33);
-  box-shadow: 0 4px 12px rgba(255, 216, 20, 0.4);
-}
-
-.progress-step.completed .step-icon {
-  background-color: rgb(6, 125, 98);
-  color: white;
-}
-
-.step-label {
-  font-size: 14px;
-  font-weight: 600;
-  color: rgb(33, 33, 33);
-  text-align: center;
-}
-
-.step-date {
-  font-size: 12px;
-  color: rgb(102, 102, 102);
-}
-
-.progress-line {
-  height: 4px;
-  background-color: rgb(213, 217, 217);
-  flex: 1;
-  margin: 0 -10px;
-  position: relative;
-  top: -25px;
-  z-index: 1;
-  transition: all 0.3s;
-}
-
-.progress-line.completed {
-  background-color: rgb(6, 125, 98);
-}
-
 .progress-bar-container {
-  height: 12px;
+  height: 10px;
   background-color: rgb(213, 217, 217);
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
-  position: relative;
+  margin-bottom: 30px;
 }
 
 .progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, rgb(6, 125, 98) 0%, rgb(8, 160, 126) 100%);
-  transition: width 0.8s ease;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-right: 10px;
-}
-
-.progress-percentage {
-  color: white;
-  font-size: 11px;
-  font-weight: 700;
-}
-
-.product-details-section {
-  margin-bottom: 35px;
-}
-
-.product-card {
-  border: 1px solid rgb(213, 217, 217);
-  border-radius: 8px;
-  padding: 20px;
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.product-image {
-  max-width: 150px;
-  max-height: 150px;
-  object-fit: contain;
-  border-radius: 8px;
-}
-
-.product-info-details {
-  flex: 1;
-}
-
-.product-name {
-  font-size: 18px;
-  font-weight: 600;
-  color: rgb(33, 33, 33);
-  margin-bottom: 15px;
-}
-
-.product-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.product-quantity {
-  font-size: 14px;
-  color: rgb(102, 102, 102);
-}
-
-.product-price {
-  font-size: 20px;
-  font-weight: 700;
-  color: rgb(196, 80, 0);
-}
-
-.tracking-actions {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.tracking-actions .button-primary,
-.tracking-actions .button-secondary {
-  padding: 12px 30px;
-  font-size: 16px;
-  text-decoration: none;
-  display: inline-block;
-  min-width: 180px;
-  text-align: center;
+  background-color: rgb(6, 125, 98);
+  transition: width 0.5s ease;
+  border-radius: 10px;
 }
 
 .tracking-error {
   text-align: center;
-  padding: 60px 40px;
+  padding: 60px 20px;
 }
 
 .tracking-error h2 {
@@ -334,56 +121,31 @@
 }
 
 @media (max-width: 768px) {
-  .tracking-header {
-    flex-direction: column;
-    gap: 15px;
-    align-items: flex-start;
-    padding: 25px 25px;
-  }
-
-  .tracking-title {
-    font-size: 24px;
-  }
-
-  .tracking-content {
+  .order-tracking {
     padding: 25px 20px;
   }
 
-  .order-summary-box {
-    grid-template-columns: 1fr;
+  .tracking-header {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 15px;
   }
 
-  .delivery-date-section {
-    flex-direction: column;
-    text-align: center;
+  .tracking-header h1 {
+    font-size: 24px;
   }
 
-  .progress-steps {
-    flex-direction: column;
-    gap: 30px;
+  .delivery-date {
+    font-size: 20px;
   }
 
-  .progress-line {
-    display: none;
+  .product-image {
+    max-width: 200px;
+    max-height: 200px;
   }
 
-  .product-card {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .product-meta {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .tracking-actions {
-    flex-direction: column;
-  }
-
-  .tracking-actions .button-primary,
-  .tracking-actions .button-secondary {
-    width: 100%;
+  .progress-labels-container {
+    font-size: 13px;
+    gap: 5px;
   }
 }

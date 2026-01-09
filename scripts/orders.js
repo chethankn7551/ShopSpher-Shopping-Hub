@@ -13,7 +13,7 @@ if (orders.length === 0) {
   ordersGrid.innerHTML = `
     <div class="no-orders-message">
       <p>You haven't placed any orders yet.</p>
-      <a href="amazon.html" class="button-primary">Start Shopping</a>
+      <a href="home.html" class="button-primary">Start Shopping</a>
     </div>
   `;
 } else {
