@@ -1,9 +1,37 @@
+/* ===============================
+   THEME VARIABLES
+================================ */
+:root {
+  --bg: #020617;
+  --text: #111827;
+  --card: #ffffff;
+  --border: #e5e7eb;
+  --primary: #4f46e5;
+  --accent: #22c55e;
+  --muted: #6b7280;
+
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] {
+  --bg: #0b1220;          /* softer navy dark */
+  --text: #e5e7eb;
+  --card: #111827;       /* dark card surface */
+  --border: #1f2937;
+  --primary: #818cf8;
+  --accent: #22c55e;
+  --muted: #9ca3af;
+
+  --shadow: 0 12px 30px rgba(0,0,0,0.6);
+}
+
+
 body {
   font-family: Roboto, Arial;
-  color: rgb(33, 33, 33);
-  /* The <body> element has a default margin of 8px
-     on all sides. This removes the default margins. */
+  background: var(--bg);
+  color: var(--text);
   margin: 0;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* <p> elements have a default margin on the top
@@ -20,28 +48,27 @@ select {
   cursor: pointer;
 }
 
-input, select, button {
+input,
+select,
+button {
   font-family: Roboto, Arial;
 }
 
 .button-primary {
-  color: rgb(33, 33, 33);
-  background-color: rgb(255, 216, 20);
-  border: 1px solid rgb(252, 210, 0);
+  background: var(--primary);
+  color: white;
+  border: none;
   border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+  box-shadow: var(--shadow);
 }
 
 .button-primary:hover {
-  background-color: rgb(247, 202, 0);
-  border: 1px solid rgb(242, 194, 0);
+  filter: brightness(1.1);
 }
 
-.button-primary:active {
-  background: rgb(255, 216, 20);
-  border-color: rgb(252, 210, 0);
-  box-shadow: none;
+* {
+  transition: background-color 0.25s ease, color 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .button-secondary {
@@ -98,4 +125,8 @@ select {
 select:focus,
 input:focus {
   outline: 2px solid rgb(255, 153, 0);
+}
+
+html, body {
+  overflow-x: hidden;
 }

@@ -1,193 +1,294 @@
-.amazon-header {
-  background-color: rgb(19, 25, 33);
-  color: white;
-  padding-left: 15px;
-  padding-right: 15px;
+/* ======================================================
+   SHOPSPHERE HEADER (CLEAN VERSION)
+====================================================== */
+
+/* ---------- Header Layout ---------- */
+.shop-header {
+  background: linear-gradient(90deg, #4f46e5, #6366f1);
+  height: 64px;
+  padding: 0 18px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
+  inset: 0 0 auto 0;
   z-index: 100;
 }
 
-.amazon-header-left-section {
-  width: 180px;
-}
-
-@media (max-width: 800px) {
-  .amazon-header-left-section {
-    width: unset;
-  }
-}
-
-.header-link {
-  display: inline-block;
-  padding: 6px;
-  border-radius: 2px;
-  cursor: pointer;
+/* ---------- Brand ---------- */
+.brand {
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  border: 1px solid rgba(0, 0, 0, 0);
 }
 
-.header-link:hover {
-  border: 1px solid white;
+.brand-logo {
+  height: 36px;
 }
 
-.amazon-logo {
-  width: 100px;
-  margin-top: 5px;
-}
-
-.amazon-mobile-logo {
+.brand-logo-mobile {
   display: none;
 }
 
 @media (max-width: 575px) {
-  .amazon-logo {
+  .brand-logo {
     display: none;
   }
 
-  .amazon-mobile-logo {
+  .brand-logo-mobile {
     display: block;
-    height: 35px;
-    margin-top: 5px;
+    height: 32px;
   }
 }
 
-.amazon-header-middle-section {
+/* ---------- Search ---------- */
+.shop-search {
   flex: 1;
-  max-width: 850px;
-  margin-left: 10px;
-  margin-right: 10px;
-  display: flex;
-  position: relative;
-}
-
-.search-bar {
-  flex: 1;
-  width: 0;
-  font-size: 16px;
-  height: 38px;
-  padding-left: 15px;
-  border: none;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.search-button {
-  background-color: rgb(254, 189, 105);
-  border: none;
-  width: 45px;
-  height: 40px;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-  flex-shrink: 0;
-}
-
-.search-icon {
-  height: 22px;
-  margin-left: 2px;
-  margin-top: 3px;
-}
-
-.amazon-header-right-section {
-  width: 180px;
-  flex-shrink: 0;
-  display: flex;
-  justify-content: end;
-}
-
-.orders-link {
-  color: white;
-}
-
-.returns-text {
-  display: block;
-  font-size: 13px;
-}
-
-.orders-text {
-  display: block;
-  font-size: 15px;
-  font-weight: 700;
-}
-
-.cart-link {
-  color: white;
+  max-width: 520px;
   display: flex;
   align-items: center;
+  margin: 0 24px;
   position: relative;
 }
 
-.cart-icon {
-  width: 50px;
-}
-
-.cart-text {
-  margin-top: 12px;
+.shop-search .search-bar {
+  flex: 1;
+  padding: 10px 14px;
   font-size: 15px;
-  font-weight: 700;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  background: white;
 }
 
-.cart-quantity {
-  color: rgb(240, 136, 4);
+.shop-search .search-button {
+  background: transparent;
+  border: none;
+  padding: 0 12px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   font-size: 16px;
-  font-weight: 700;
-
-  position: absolute;
-  top: 4px;
-  left: 22px;
-  
-  width: 26px;
-  text-align: center;
+  color: rgba(0, 0, 0, 0.55);
+  transition: color 0.15s ease, transform 0.1s ease;
 }
 
-/* Search Suggestions Styles */
+.shop-search .search-button:hover {
+  color: var(--primary);
+  transform: scale(1.1);
+}
+
+.shop-search .search-button:active {
+  transform: scale(0.95);
+}
+
+/* Dark mode search */
+[data-theme="dark"] .shop-search .search-bar {
+  background: #020617;
+  color: white;
+}
+
+[data-theme="dark"] .shop-search .search-button {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ---------- Search Suggestions ---------- */
 .search-suggestions {
   position: absolute;
-  top: 40px;
+  top: calc(100% + 6px);
   left: 0;
-  right: 45px;
-  background-color: white;
-  border: 1px solid rgb(213, 217, 217);
-  border-top: none;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  right: 0;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
   display: none;
   z-index: 1000;
-  max-height: 400px;
+  max-height: 320px;
   overflow-y: auto;
 }
 
 .suggestion-item {
   display: flex;
   align-items: center;
-  padding: 10px 15px;
+  padding: 10px 14px;
   cursor: pointer;
-  color: rgb(33, 33, 33);
-  transition: background-color 0.2s;
-}
-
-.suggestion-item:hover {
-  background-color: rgb(247, 250, 250);
+  font-size: 14px;
+  gap: 10px;
+  transition: background-color 0.15s ease;
 }
 
 .suggestion-icon {
-  width: 18px;
-  height: 18px;
-  margin-right: 10px;
-  opacity: 0.6;
+  height: 14px;
+  width: 14px;
 }
 
-.suggestion-item span {
-  font-size: 14px;
+.suggestion-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .suggestion-item:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+/* ---------- Right Actions ---------- */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Orders link */
+.header-link {
+  color: white;
+  text-decoration: none;
+  line-height: 1.1;
+  font-size: 13px;
+}
+
+.header-link .small {
+  opacity: 0.8;
+  font-size: 12px;
+}
+
+.header-link .bold {
+  font-weight: 600;
+}
+
+/* ---------- Cart Button ---------- */
+.cart-button {
+  position: relative;
+  font-size: 22px;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+/* Cart badge */
+.cart-quantity {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+
+  background: var(--accent);
+  color: black;
+  font-size: 11px;
+  font-weight: 700;
+
+  padding: 2px 6px;
+  border-radius: 999px;
+  min-width: 18px;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* ---------- Theme Toggle ---------- */
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.theme-toggle span {
+  font-size: 20px;
+}
+
+/* ===============================
+   Profile Icon
+================================ */
+
+.profile-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 12px;
+}
+
+.profile-icon {
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.profile-icon:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* =========================
+   Profile Header
+========================= */
+
+.profile-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 64px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+}
+
+.profile-header-content {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+
+/* Brand */
+.profile-brand {
+  display: flex;
+  align-items: center;
+}
+
+.profile-logo {
+  height: 34px;
+}
+
+/* Center Title */
+.profile-title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Spacer */
+.profile-header-spacer {
+  width: 34px;
+}
+
+/* Push content below header */
+.profile-page {
+  padding-top: 90px;
+  display: flex;
+  justify-content: center;
 }

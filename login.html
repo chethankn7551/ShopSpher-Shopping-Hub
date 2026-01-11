@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="styles/shared/general.css" />
+    <link rel="stylesheet" href="./styles/pages/auth.css" />
+  </head>
+
+  <body>
+    <main class="auth-main">
+      <div class="auth-card">
+        <!-- Brand -->
+        <div class="auth-brand">
+          <img src="images/brand/logo.svg" />
+        </div>
+
+        <h1>Welcome Back</h1>
+        <p class="auth-subtitle">Login to continue shopping 🛒</p>
+
+        <form class="auth-form" id="loginForm">
+          <input id="email" type="email" placeholder="Email Address" />
+          <input id="password" type="password" placeholder="Password" />
+
+          <button type="submit" class="auth-primary-btn">
+            Login
+          </button>
+
+          <p class="auth-footer">
+            Don’t have an account?
+            <a href="signup.html">Create one</a>
+          </p>
+
+          <div class="auth-error js-error"></div>
+        </form>
+      </div>
+    </main>
+
+    <script type="module" src="./scripts/auth/login.js"></script>
+  </body>
+</html>

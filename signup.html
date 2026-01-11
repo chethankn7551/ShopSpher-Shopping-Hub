@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create Account</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="styles/shared/general.css" />
+    <link rel="stylesheet" href="./styles/pages/auth.css" />
+  </head>
+
+  <body>
+    <main class="auth-main">
+      <div class="auth-card">
+        <!-- Brand -->
+        <div class="auth-brand">
+          <img src="images/brand/logo.svg" />
+        </div>
+
+        <h1>Create Account</h1>
+        <p class="auth-subtitle">Sign up to start shopping 🚀</p>
+
+        <form class="auth-form" id="signupForm">
+          <input id="name" type="text" placeholder="Full Name" />
+          <input id="email" type="email" placeholder="Email Address" />
+          <input id="phone" type="tel" placeholder="Phone Number" />
+          <input id="password" type="password" placeholder="Password" />
+
+          <button type="submit" class="auth-primary-btn">
+            Create Account
+          </button>
+
+          <p class="auth-footer">
+            Already have an account?
+            <a href="login.html">Login</a>
+          </p>
+
+          <div class="auth-error js-error"></div>
+        </form>
+      </div>
+    </main>
+
+    <script type="module" src="./scripts/auth/signup.js"></script>
+  </body>
+</html>

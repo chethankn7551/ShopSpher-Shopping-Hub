@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Profile</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="styles/shared/general.css" />
+    <link rel="stylesheet" href="styles/shared/header.css" />
+    <link rel="stylesheet" href="./styles/pages/profile.css" />
+  </head>
+
+  <body class="profile-page">
+    <!-- Header -->
+    <header class="profile-header">
+      <a href="home.html" class="profile-brand">
+        <img src="images/brand/logo.svg" class="profile-logo" />
+      </a>
+
+      <div class="profile-title">My Profile</div>
+
+      <div class="profile-spacer"></div>
+    </header>
+
+    <!-- Main -->
+    <main class="profile-main">
+      <div class="profile-card">
+        <!-- ✅ Back Button inside card -->
+        <a href="home.html" class="profile-card-back">← Back</a>
+
+        <!-- Avatar -->
+        <div class="profile-avatar">
+          <img src="images/icons/user.svg" alt="User" />
+        </div>
+
+        <h2 class="profile-name js-profile-name">--</h2>
+        <p class="profile-subtitle">Account Information</p>
+
+        <!-- Info -->
+        <div class="profile-info">
+          <div class="profile-row">
+            <span>Email</span>
+            <strong class="js-profile-email">--</strong>
+          </div>
+
+          <div class="profile-row">
+            <span>Phone</span>
+            <strong class="js-profile-phone">--</strong>
+          </div>
+        </div>
+
+        <!-- Action -->
+        <button class="profile-logout-btn js-logout-btn">
+          Logout
+        </button>
+      </div>
+    </main>
+
+    <script type="module" src="./scripts/auth/profile.js"></script>
+  </body>
+</html>

@@ -2,57 +2,53 @@
 <html>
   <head>
     <title>Order Confirmation - TechHub</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="styles/shared/general.css">
-    <link rel="stylesheet" href="styles/shared/header.css">
-    <link rel="stylesheet" href="styles/pages/order-confirmation.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles/shared/general.css" />
+    <link rel="stylesheet" href="styles/shared/header.css" />
+    <link rel="stylesheet" href="styles/pages/order-confirmation.css" />
   </head>
   <body>
-    <div class="amazon-header">
-      <div class="amazon-header-left-section">
-        <a href="home.html" class="header-link">
-          <img class="amazon-logo" src="images/amazon-logo-white.png">
-          <img class="amazon-mobile-logo" src="images/amazon-mobile-logo-white.png">
-        </a>
-      </div>
-
-      <div class="amazon-header-middle-section">
-        <input class="search-bar" type="text" placeholder="Search">
-        <button class="search-button">
-          <img class="search-icon" src="images/icons/search-icon.png">
-        </button>
-      </div>
-
-      <div class="amazon-header-right-section">
-        <a class="orders-link header-link" href="orders.html">
-          <span class="returns-text">Returns</span>
-          <span class="orders-text">& Orders</span>
+    <header class="confirmation-header">
+      <div class="confirmation-header-content">
+        <a href="home.html" class="confirmation-brand">
+          <img
+            src="images/brand/logo.svg"
+            alt="ShopSphere"
+            class="confirmation-logo"
+          />
         </a>
 
-        <a class="cart-link header-link" href="checkout.html">
-          <img class="cart-icon" src="images/icons/cart-icon.png">
-          <div class="cart-quantity">0</div>
-          <div class="cart-text">Cart</div>
-        </a>
+        <div class="confirmation-title">Order Confirmation</div>
+
+        <div class="confirmation-lock">
+          <img src="images/icons/checkout-lock-icon.png" alt="Secure" />
+        </div>
       </div>
-    </div>
+    </header>
 
     <div class="main">
       <div class="confirmation-container">
         <div class="success-icon">
-          <img src="images/icons/checkmark.png" alt="Success">
+          <img src="images/icons/checkmark.png" alt="Success" />
         </div>
-        
+
         <h1 class="confirmation-title">Order Placed Successfully!</h1>
-        <p class="confirmation-message">Thank you for your purchase. Your order has been confirmed.</p>
-        
+        <p class="confirmation-message">
+          Thank you for your purchase. Your order has been confirmed.
+        </p>
+
         <div class="order-details js-order-details">
           <!-- Order details will be inserted here by JavaScript -->
+          <span class="order-id-label">Order ID</span>
+          <span class="order-id-value js-order-id">--</span>
         </div>
 
         <div class="confirmation-actions">
@@ -66,6 +62,6 @@
       </div>
     </div>
 
-    <script type="module" src="./scripts/order-confirmation.js"></script>
+    <script type="module" src="./scripts/order-confirmations.js"></script>
   </body>
 </html>

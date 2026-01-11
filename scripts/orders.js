@@ -1,5 +1,5 @@
 import { formatCurrency } from "./utils/ProductPrice.js";
-import { updateCartQuantity } from "./cart.js";
+import { addToCart, updateCartQuantity } from "./cart.js";
 import dayjs from "https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js";
 
 updateCartQuantity();
@@ -19,7 +19,6 @@ if (orders.length === 0) {
 } else {
   let ordersHTML = "";
 
-  // Display orders in reverse chronological order (newest first)
   [...orders].reverse().forEach((order) => {
     ordersHTML += `
       <div class="order-container">
@@ -41,12 +40,10 @@ if (orders.length === 0) {
 
         <div class="order-details-grid">
           ${order.items.map(item => {
-            // Calculate estimated delivery date (7 days from order date)
             const orderDate = new Date(order.orderDate);
             const deliveryDate = dayjs(orderDate).add(7, 'days');
             const formattedDeliveryDate = deliveryDate.format('MMMM D');
             
-            // Create tracking URL with order ID and product name
             const trackingUrl = `tracking.html?orderId=${order.orderNumber}&productName=${encodeURIComponent(item.name)}`;
             
             return `
@@ -75,4 +72,20 @@ if (orders.length === 0) {
   });
 
   ordersGrid.innerHTML = ordersHTML;
+  document.addEventListener("click", (event) => {
+  const button = event.target.closest(".buy-again-button");
+  if (!button) return;
+
+  const productId = button.dataset.productId;
+
+  if (!productId) {
+    console.warn("Missing productId for Buy Again");
+    return;
+  }
+
+  addToCart(productId, 1);
+  updateCartQuantity();
+
+  window.location.href = "home.html";
+});
 }

@@ -8,10 +8,28 @@
   margin-right: auto;
 }
 
+/* --------------------------------
+   Orders Page Title (Content)
+-------------------------------- */
+
 .page-title {
+  margin: 20px 0 24px;
+  font-size: 28px;
   font-weight: 700;
-  font-size: 26px;
-  margin-bottom: 25px;
+  color: #f8fafc;
+  letter-spacing: 0.3px;
+  position: relative;
+}
+
+/* Accent underline */
+.page-title::after {
+  content: "";
+  display: block;
+  width: 42px;
+  height: 3px;
+  margin-top: 8px;
+  border-radius: 999px;
+  background: var(--primary);
 }
 
 .orders-grid {
@@ -25,6 +43,12 @@
   border-radius: 8px;
   overflow: hidden;
   background-color: white;
+}
+
+.order-container,
+.no-orders-message {
+  background: var(--card);
+  border-color: var(--border);
 }
 
 .order-header {
@@ -229,4 +253,103 @@
     width: 100%;
     text-align: center;
   }
+}
+
+/* ======================================================
+   ORDERS HEADER
+====================================================== */
+
+.orders-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 64px;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+}
+
+.orders-header-content {
+  max-width: 1100px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.orders-brand {
+  display: flex;
+  align-items: center;
+}
+
+.orders-logo {
+  height: 34px;
+}
+
+/* Center title */
+.orders-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Right action */
+.orders-actions {
+  display: flex;
+  align-items: center;
+}
+
+.orders-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.orders-link:hover {
+  text-decoration: underline;
+}
+
+/* Dark mode */
+[data-theme="dark"] .orders-header {
+  background: #020617;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .orders-title {
+  color: #e5e7eb;
+}
+
+/* ===============================
+   Buy Again Button (Brand Style)
+================================ */
+
+.buy-again-button {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: #ffffff;
+
+  border: none;
+  border-radius: 999px;
+
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.buy-again-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35);
+}
+
+.buy-again-button:disabled {
+  opacity: 0.7;
+  cursor: default;
 }

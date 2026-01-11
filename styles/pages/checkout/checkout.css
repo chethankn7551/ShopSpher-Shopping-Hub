@@ -1,233 +1,242 @@
-.main {
-  max-width: 1100px;
-  padding-left: 30px;
-  padding-right: 30px;
-
-  margin-top: 140px;
-  margin-bottom: 100px;
-
-  /* margin-left: auto;
-     margin-right auto;
-     Is a trick for centering an element horizontally
-     without needing a container. */
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.page-title {
-  font-weight: 700;
-  font-size: 22px;
-  margin-bottom: 18px;
-}
+/* ===============================
+   Checkout Layout
+================================ */
 
 .checkout-grid {
-  display: grid;
-  /* Here, 1fr means the first column will take
-     up the remaining space in the grid. */
-  grid-template-columns: 1fr 350px;
-  column-gap: 12px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 96px 16px 32px;
 
-  /* Use align-items: start; to prevent the elements
-     in the grid from stretching vertically. */
-  align-items: start;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
 }
 
-@media (max-width: 1000px) {
-  .main {
-    max-width: 500px;
-  }
-
+/* Stack on mobile */
+@media (max-width: 900px) {
   .checkout-grid {
     grid-template-columns: 1fr;
   }
 }
 
-.cart-item-container,
+/* ===============================
+   Card Surfaces
+================================ */
+
+.order-summary,
 .payment-summary {
-  border: 1px solid rgb(222, 222, 222);
-  border-radius: 4px;
-  padding: 18px;
+  background: var(--card);
+  border-radius: 14px;
+  padding: 20px;
 }
+
+/* Subtle border for order list */
+.order-summary {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"] .order-summary {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ===============================
+   Cart Item Row
+================================ */
 
 .cart-item-container {
-  margin-bottom: 12px;
-}
-
-.payment-summary {
-  padding-bottom: 5px;
-}
-
-@media (max-width: 1000px) {
-  .payment-summary {
-    /* grid-row: 1 means this element will be placed into row
-      1 in the grid. (Normally, the row that an element is
-      placed in is determined by the order of the elements in
-      the HTML. grid-row overrides this default ordering). */
-    grid-row: 1;
-    margin-bottom: 12px;
-  }
-}
-
-.delivery-date {
-  color: rgb(0, 118, 0);
-  font-weight: 700;
-  font-size: 19px;
-  margin-top: 5px;
-  margin-bottom: 22px;
-}
-
-.cart-item-details-grid {
   display: grid;
-  /* 100px 1fr 1fr; means the 2nd and 3rd column will
-     take up half the remaining space in the grid
-     (they will divide up the remaining space evenly). */
-  grid-template-columns: 100px 1fr 1fr;
-  column-gap: 25px;
+  grid-template-columns: 48px 1fr;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  transition: background 0.15s ease;
 }
 
-@media (max-width: 1000px) {
-  .cart-item-details-grid {
-    grid-template-columns: 100px 1fr;
-    row-gap: 30px;
-  }
+.cart-item-container:last-child {
+  border-bottom: none;
 }
 
-.product-image {
-  max-width: 100%;
-  max-height: 120px;
+.cart-item-container:hover {
+  background: rgba(0, 0, 0, 0.015);
+}
 
-  /* margin-left: auto;
-     margin-right auto;
-     Is a trick for centering an element horizontally
-     without needing a container. */
-  margin-left: auto;
-  margin-right: auto;
+[data-theme="dark"] .cart-item-container {
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .cart-item-container:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Product image */
+.cart-item-container .product-image {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+/* Item details */
+.cart-item-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .product-name {
-  font-weight: 700;
-  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--text);
 }
 
 .product-price {
-  color: rgb(177, 39, 4);
-  font-weight: 700;
-  margin-bottom: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary);
 }
 
-.product-quantity .link-primary {
-  margin-left: 3px;
+/* Quantity row */
+.product-quantity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--muted);
 }
 
-@media (max-width: 1000px) {
-  .delivery-options {
-    /* grid-column: 1 means this element will be placed
-       in column 1 in the grid. (Normally, the column that
-       an element is placed in is determined by the order
-       of the elements in the HTML. grid-column overrides
-       this default ordering).
-       
-       / span 2 means this element will take up 2 columns
-       in the grid (Normally, each element takes up 1
-       column in the grid). */
-    grid-column: 1 / span 2;
+/* ===============================
+   Delivery Section
+================================ */
+
+.delivery-date {
+  grid-column: 1 / -1;
+  display: block;
+  margin-top: 18px;
+  margin-bottom: 10px;
+
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+[data-theme="dark"] .delivery-date {
+  color: #e5e7eb;
+}
+
+.delivery-options {
+  margin-top: 4px;
+}
+
+/* Delivery option row */
+.delivery-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+/* Pointer cursor for radio */
+.delivery-option input[type="radio"] {
+  cursor: pointer;
+}
+
+.delivery-option:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] .delivery-option:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ===============================
+   Payment Summary
+================================ */
+
+.payment-summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13.5px;
+  margin: 8px 0;
+}
+
+/* Place order button */
+.place-order-button {
+  margin-top: 16px;
+  padding: 12px;
+  width: 100%;
+  border-radius: 10px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  background: var(--primary);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.place-order-button:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+/* ===============================
+   Mobile Spacing
+================================ */
+
+@media (max-width: 600px) {
+  .checkout-grid {
+    padding: 84px 12px 24px;
+  }
+
+  .order-summary,
+  .payment-summary {
+    padding: 16px;
   }
 }
 
-.delivery-options-title {
-  font-weight: 700;
-  margin-bottom: 10px;
+/* ===============================
+   Empty Cart State
+================================ */
+
+.empty-cart {
+  margin-top: 120px;
+  text-align: center;
+  padding: 80px 20px;
 }
 
-.delivery-option {
-  display: grid;
-  grid-template-columns: 24px 1fr;
-  margin-bottom: 12px;
-  cursor: pointer;
+.empty-cart h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: #f8fafc;
 }
 
-.delivery-option-input {
-  margin-left: 0px;
-  cursor: pointer;
-}
-
-.delivery-option-date {
-  color: rgb(0, 118, 0);
-  font-weight: 500;
-  margin-bottom: 3px;
-}
-
-.delivery-option-price {
-  color: rgb(120, 120, 120);
+.empty-cart p {
   font-size: 15px;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 28px;
 }
 
-.payment-summary-title {
-  font-weight: 700;
-  font-size: 18px;
-  margin-bottom: 12px;
-}
-
-.payment-summary-row {
-  display: grid;
-  /* 1fr auto; means the width of the 2nd column will be
-     determined by the elements inside the column (auto).
-     The 1st column will take up the remaining space. */
-  grid-template-columns: 1fr auto;
-
+.empty-cart-button {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
   font-size: 15px;
-  margin-bottom: 9px;
+  transition: filter 0.15s ease, transform 0.15s ease;
 }
 
-.payment-summary-money {
-  text-align: right;
-}
-
-.subtotal-row .payment-summary-money {
-  border-top: 1px solid rgb(222, 222, 222);
-}
-
-.subtotal-row div {
-  padding-top: 9px;
-}
-
-.total-row {
-  color: rgb(177, 39, 4);
-  font-weight: 700;
-  font-size: 18px;
-
-  border-top: 1px solid rgb(222, 222, 222);
-  padding-top: 18px;
-}
-
-.place-order-button {
-  width: 100%;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  border-radius: 8px;
-
-  margin-top: 11px;
-  margin-bottom: 15px;
-}
-/* Add these styles to your existing checkout.css file */
-
-/* 14g: Style the quantity input */
-.quantity-input {
-  width: 30px;
-  display: none;
-}
-
-/* 14h: Hide the save link by default */
-.save-quantity-link {
-  display: none;
-}
-
-/* 14h: Show input when editing quantity */
-.is-editing-quantity .quantity-input {
-  display: initial;
-}
-
-/* 14h: Show save link when editing quantity */
-.is-editing-quantity .save-quantity-link {
-  display: initial;
+.empty-cart-button:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
 }

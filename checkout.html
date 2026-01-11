@@ -24,23 +24,35 @@
   <body>
     <div class="checkout-header">
       <div class="header-content">
-        <div class="checkout-header-left-section">
+        <div class="checkout-header-left">
           <a href="home.html">
-            <img class="amazon-logo" src="images/amazon-logo.png" />
             <img
-              class="amazon-mobile-logo"
-              src="images/amazon-mobile-logo.png"
+              class="checkout-brand-logo"
+              src="images/brand/logo.svg"
+              alt="ShopSphere"
+            />
+
+            <img
+              class="checkout-brand-logo-mobile"
+              src="images/brand/logo-mobile.svg"
+              alt="ShopSphere"
             />
           </a>
         </div>
 
-        <div class="checkout-header-middle-section">
-          Checkout (<a class="return-to-home-link" href="home.html">3 items</a
-          >)
+        <div class="checkout-header-center">
+          Checkout (
+          <a class="return-to-home-link js-checkout-count" href="home.html"
+            >0 items</a
+          >
+          )
         </div>
 
-        <div class="checkout-header-right-section">
-          <img src="images/icons/checkout-lock-icon.png" />
+        <div class="checkout-header-right">
+          <img
+            src="images/icons/checkout-lock-icon.png"
+            alt="Secure Checkout"
+          />
         </div>
       </div>
     </div>
@@ -48,41 +60,18 @@
     <div class="main">
       <div class="page-title">Review your order</div>
 
-      <div class="checkout-grid">
-        <div class="order-summary"></div>
+      <!-- Empty Cart State -->
+      <div class="empty-cart js-empty-cart">
+        <h2>Your cart is empty</h2>
+        <p>Add some products to continue checkout.</p>
+        <a href="home.html" class="empty-cart-button">Start Shopping</a>
+      </div>
 
-        <div class="payment-summary">
-          <div class="payment-summary-title">Order Summary</div>
+      <!-- Checkout Content -->
+      <div class="checkout-grid js-checkout-grid">
+        <div class="order-summary js-order-summary"></div>
 
-          <div class="payment-summary-row">
-            <div>Items (3):</div>
-            <div class="payment-summary-money">$42.75</div>
-          </div>
-
-          <div class="payment-summary-row">
-            <div>Shipping &amp; handling:</div>
-            <div class="payment-summary-money">$4.99</div>
-          </div>
-
-          <div class="payment-summary-row subtotal-row">
-            <div>Total before tax:</div>
-            <div class="payment-summary-money">$47.74</div>
-          </div>
-
-          <div class="payment-summary-row">
-            <div>Estimated tax (10%):</div>
-            <div class="payment-summary-money">$4.77</div>
-          </div>
-
-          <div class="payment-summary-row total-row">
-            <div>Order total:</div>
-            <div class="payment-summary-money">$52.51</div>
-          </div>
-
-          <button class="place-order-button button-primary">
-            Place your order
-          </button>
-        </div>
+        <div class="payment-summary js-payment-summary"></div>
       </div>
     </div>
 

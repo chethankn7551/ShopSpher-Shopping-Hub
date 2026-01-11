@@ -1,99 +1,189 @@
-.main {
-  max-width: 850px;
-  margin-top: 90px;
-  margin-bottom: 100px;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-left: auto;
-  margin-right: auto;
+/* ===============================
+   Disable Page Scroll
+================================ */
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
 }
 
-.order-tracking {
-  background-color: white;
-  padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+.tracking-page {
+  height: 100vh;
+  overflow: hidden;
 }
+
+/* ===============================
+   Header
+================================ */
 
 .tracking-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid rgb(213, 217, 217);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 64px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
 }
 
-.tracking-header h1 {
-  font-size: 28px;
+.tracking-header-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tracking-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.tracking-logo {
+  height: 34px;
+}
+
+.tracking-brand-name {
   font-weight: 700;
-  color: rgb(33, 33, 33);
-  margin: 0;
+  font-size: 18px;
+  color: var(--text);
+}
+
+.tracking-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.tracking-link {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.tracking-link:hover {
+  opacity: 0.8;
+}
+
+/* ===============================
+   Main Layout
+================================ */
+
+.main {
+  height: calc(100vh - 64px);
+  margin-top: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+}
+
+/* ===============================
+   Tracking Card
+================================ */
+
+.order-tracking {
+  width: 100%;
+  max-width: 880px;
+  max-height: 100%;
+  overflow: hidden;
+
+  background: var(--card);
+  border-radius: 18px;
+  padding: 32px;
+  box-shadow: var(--shadow);
+}
+
+/* Header inside card */
+.tracking-card-header {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 14px;
 }
 
 .back-to-orders-link {
-  font-size: 15px;
+  font-size: 14px;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
 }
+
+/* Delivery */
 
 .delivery-date {
   font-size: 22px;
   font-weight: 700;
-  margin-bottom: 20px;
-  color: rgb(33, 33, 33);
+  margin-bottom: 18px;
+  color: var(--text);
 }
+
+/* Product */
 
 .product-info {
   font-size: 16px;
-  margin-bottom: 10px;
-  color: rgb(33, 33, 33);
+  margin-bottom: 6px;
+  color: var(--text);
 }
 
 .product-image {
-  max-width: 250px;
-  max-height: 250px;
-  display: block;
-  margin-top: 25px;
-  margin-bottom: 35px;
+  width: 220px;
+  height: 220px;
   object-fit: contain;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 12px;
+  margin: 20px auto 28px;
+  display: block;
 }
+
+/* ===============================
+   Progress Bar
+================================ */
 
 .progress-labels-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   margin-bottom: 12px;
-  gap: 10px;
 }
 
 .progress-label {
   text-align: center;
-  font-size: 15px;
-  color: rgb(102, 102, 102);
+  font-size: 14px;
+  color: var(--muted);
   font-weight: 500;
 }
 
-.progress-label.current-status {
-  color: rgb(6, 125, 98);
+.progress-label.completed,
+.progress-label.current {
+  color: var(--primary);
   font-weight: 700;
-}
-
-.progress-label.completed {
-  color: rgb(6, 125, 98);
 }
 
 .progress-bar-container {
   height: 10px;
-  background-color: rgb(213, 217, 217);
-  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
   overflow: hidden;
-  margin-bottom: 30px;
 }
 
 .progress-bar {
   height: 100%;
-  background-color: rgb(6, 125, 98);
-  transition: width 0.5s ease;
-  border-radius: 10px;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  transition: width 0.4s ease;
+  border-radius: inherit;
 }
+
+/* ===============================
+   Error State
+================================ */
 
 .tracking-error {
   text-align: center;
@@ -102,50 +192,29 @@
 
 .tracking-error h2 {
   font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 15px;
-  color: rgb(33, 33, 33);
+  margin-bottom: 12px;
 }
 
 .tracking-error p {
-  font-size: 16px;
-  color: rgb(102, 102, 102);
-  margin-bottom: 25px;
+  color: var(--muted);
+  margin-bottom: 24px;
 }
 
-.tracking-error .button-primary {
-  padding: 12px 30px;
-  font-size: 16px;
-  text-decoration: none;
-  display: inline-block;
-}
+/* ===============================
+   Mobile
+================================ */
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .order-tracking {
-    padding: 25px 20px;
-  }
-
-  .tracking-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-  }
-
-  .tracking-header h1 {
-    font-size: 24px;
-  }
-
-  .delivery-date {
-    font-size: 20px;
+    padding: 22px;
   }
 
   .product-image {
-    max-width: 200px;
-    max-height: 200px;
+    width: 160px;
+    height: 160px;
   }
 
-  .progress-labels-container {
-    font-size: 13px;
-    gap: 5px;
+  .delivery-date {
+    font-size: 18px;
   }
 }
